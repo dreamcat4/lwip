@@ -1,0 +1,8 @@
+
+m4_define(NEWS, `<b>$1</b><br> $2<br><br><br>')
+
+m4_ifdef(LNEWS, ,
+m4_define(LNEWS, NEWS($1, $2)))
+
+m4_include(NEWSLIST)
+

@@ -1,0 +1,148 @@
+
+m4_define(JAN, January)
+m4_define(FEB, February)
+m4_define(MAR, March)
+m4_define(APR, April)
+m4_define(MAY, May)
+m4_define(JUN, June)
+m4_define(JUL, July)
+m4_define(AUG, August)
+m4_define(SEP, September)
+m4_define(OCT, October)
+m4_define(NOV, November)
+m4_define(DEC, December)
+
+m4_define(RFC, `$1, <a
+href="ftp://ftp.ietf.org/rfc/rfc$3.txt">$2</a>, RFC$3, $4 $5.')
+
+m4_define(PROC, `$1. $2. In <i>$3</i>, $4, $5 $6.')
+m4_define(ART, `$1. $2. <i>$3</i>, $4($5), $6 $7.')
+
+m4_define(LINK, `<a href="$2">$1</a> - $3.<br>')
+m4_define(ULINK, `<a href="$2">$1</a>')
+
+lwIP pages:
+<ul>
+<li>ULINK(Florian Schulze's lwIP page,
+http://proff.crowproductions.de/lwipdev_en.php) 
+<li>ULINK(Leon Woestenberg's lwIP page,
+http://www.esrac.ele.tue.nl/~leon/lwip/)
+<li>ULINK(Compendium Technologies port of lwIP to the Rabbit 2000/3000,
+http://www.compendium-tech.com/RabbitTCPIP.jsp)
+</ul>
+
+Companies using lwIP in their products:
+<img src="img/seth.jpg" align="right">
+<ul>
+<li>Paul Sheer's open source operating system <a
+href="http://www.icon.co.za/~psheer/paulos/">PaulOS</a> uses lwIP as
+its TCP/IP protocol stack.<br>
+<li><a href="http://www.openfuel.com/">OpenFuel</a> of
+South Africa are using lwIP in their Seth serial-to-Ethernet
+device. See the picture to the right.<br> 
+<li>UK based ULINK(Tangent Devices Ltd,
+http://www.tangentdevices.co.uk/) are incorporating lwIP in their film
+and video post-production equipment.<br>
+<li>ULINK(Axon Digital Design BV, http://www.axon.tv) in The
+Netherlands is merging lwIP with their current IP stack for use in the
+Synapse modular broadcasting system.
+</ul>
+
+Projects using lwIP:
+<ul>
+<li>LINK(The ARENA Project, http://www.cdt.luth.se/projects/arena/,
+Hockey players equipped with pulse and breathing sensors running lwIP) 
+<li>LINK(The Embedded Internet Systems 2001 Student Project,
+http://bart.sm.luth.se/eis2001/, Flow meter and belt tension sensors
+running lwIP)
+<li>LINK(KOS, http://dcdev.allusion.net/, The KOS operating system for
+Sega Dreamcast uses lwIP)
+</ul>
+
+Other small TCP/IP implementations:
+<ul>
+<li>LINK(uIP, http://dunkels.com/adam/uip/, `My own very small free TCP/IP 
+implementation, suitable for systems with hundreds of bytes free RAM
+and a few kilobytes of free code space')
+<li>LINK(Picnic, http://members.vol.at/home.floery/electronix/picnic/,
+`A hardware design with a PIC and an Ethernet chip that includes
+software for running a web server')
+<li>LINK(CMX Micronet, http://www.cmx.com/micronet.htm, `A commercial
+small TCP/IP implementation for 8-bit systems')
+<li>LINK(InterNiche NicheStack,
+http://www.iniche.com/products/tcpip.htm, `A commercial TCP/IP stack
+for embedded systems')
+<li>LINK(LiveDevices Embedinet,
+http://www.livedevices.com/net_products/embedinet.shtml, `A small
+commercial TCP/IP stack for PIC and H8S')
+<li>LINK(Kadak KwikNet, http://www.kadak.com/html/kdkp1030.htm,
+`A commercial TCP/IP stack for embedded systems')
+<li>LINK(uC/IP, http://ucip.sourceforge.net/, `uC/IP is a BSD-based
+TCP/IP protocol stack for microcontrollers')
+<li>LINK(TinyTCP,
+http://www.csonline.net/bpaddock/tinytcp/default.htm, `A very slim
+TCP, IP, and FTP implementation')
+<li>LINK(WWWpic2, http://kyllikki.fluff.org/hardware/wwwpic2/, Small
+HTTP/TCP/IP implementation for a PIC)
+<li>LINK(PIC Web Server,
+http://www.rmbeales.fsnet.co.uk/files/html/picserver/picservd.htm,
+Small HTTP/TCP/IP/SLIP PIC implementation)
+<li>LINK(Liquorice, http://liquorice.sourceforge.net, `Liquorice
+includes a TCP/IP stack')
+<li>LINK(CPC/IP, http://www.nenie.org/cpcip/, A TCP/IP stack for
+Amstrad CPCs)
+<li>LINK(LUnix, http://lng.sourceforge.net/, LUnix contains a small
+TCP/IP stack)
+<li>LINK(JOS, http://www.sweetcherrie.com/jolz64/jos/, JOS includes a
+TCP/IP implementation)
+</ul>
+
+Very small web servers:
+<ul>
+<li>LINK(webACE, http://world.std.com/~fwhite/ace/, World's Smallest
+Web Server)
+<li>LINK(iPIC, http://www-ccs.cs.umass.edu/~shri/iPic.html, A Match
+Head Sized Web Server)
+</ul>
+
+Related RFCs:
+<ul>
+<li>RFC(J. Postel, Internet Protocol, 791, SEP, 1981)
+<li>RFC(J. Postel, Internet Control Message Protocol, 792, SEP, 1981)
+<li>RFC(J. Postel, User Datagram Protocol, 768, AUG, 1980)
+<li>RFC(J. Postel, Transmission Control Protocol, 793, SEP, 1981)
+<li>RFC(D. D. Clark, Window and Acknowledgement Strategy in TCP, 813, JUL, 1982)
+<li>RFC(D. D. Clark, Modularity and Efficiency in Protocol Implementation, 817, JUL, 1982)
+<li>RFC(R. Braden, Requirements for Internet Hosts -- Communication Layers, 1122, OCT, 1989)
+<li>RFC(T. Mallory and A. Kullberg, Incremental Updating of the Internet Checksum, 1141, JAN, 1990)
+<li>RFC(A. Rijsinghani, Computation of the Internet Checksum via Incremental Update, 1624, MAY, 1994)
+<li>RFC(R. Braden, TIME-WAIT Assasination Hazards in TCP, 1337, MAY, 1992)
+<li>RFC(B. Carpenter, Architectural Principles of the Internet, 1958, JUN, 1996)
+<li>RFC(`M. Allman, V. Paxson and W. Stevens', TCP Congestion Control, 2581, APR, 1999)
+<li>RFC(S. Parker and C. Schmechel, Some Testing Tools for TCP Implementors, 2398, AUG, 1998)
+</ul>
+
+Related publications:
+<ul>
+<li>PROC(V. Jacobson, Congestion avoidance and control, Proceedings of
+the SIGCOMM '88 Conference, `Stanford, California', AUG, 1988)
+<li>ART(V. Jacobson, 4.3BSD TCP header prediction, ACM Computer
+Communications Review, 20, 2, APR, 1990)
+<li>PROC(P. Karn and C. Partridge, Improving round-trip time estimates
+in reliablie transport protocols, Proceedings of the SIGCOMM '87
+Conference, `Stowe, Vermont', AUG, 1987)
+<li>ART(J. Kay and J. Pasquale, Profiling and Reducing Processing
+Overheads in TCP/IP, IEEE/ACM Transactions of Networking, 4, 6, DEC, 1996)
+<li>PROC(`L. Larzon, M. Degermark, and S. Pink', UDP Lite for
+real-time multimedia applications, Proceedings of the IEEE
+International Conference of Communications, `Vancouver, British
+Columbia, Canada', JUN, 1999)
+<li>PROC(P. E. McKenney and K. F. Dove, Efcient demultiplexing of
+incoming TCP packets, Proceedings of the SIGCOMM '92 Conference,
+`Baltimore, Maryland', AUG, 1992)
+<li>ART(C. Partridge and S. Pink, A faster UDP, IEEE/ACM Transactions
+in Networking, 1, 4, AUG, 1993)
+</ul>
+
+
+UPDATED($Date: 2003/01/20 14:13:31 $)        

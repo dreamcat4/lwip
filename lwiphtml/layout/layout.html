@@ -1,0 +1,70 @@
+<table width="PAGEWIDTH" cellspacing="6" cellpadding="0" border="0">
+<tr valign="top"><td width="MENUWIDTH">
+
+BORDER_START(Menu, 5)
+m4_include(MENU)
+BORDER_END()
+
+<br>	
+BORDER_START(Development Page, 5)
+<center>
+The lwIP project page at <a
+href="http://savannah.nongnu.org/projects/lwip/">Savannah</a>.				      
+</center>
+BORDER_END()
+
+	
+m4_ifdef(`RELATED_SITES',
+`
+<br>
+BORDER_START(Related sites, 5)
+<center>
+RELATED_SITES()
+</center>
+BORDER_END()
+',)
+
+</td><td>
+
+BORDER_START(TITLE, 10)
+m4_include(html/FILE.html)
+BORDER_END()
+
+</td><td width="NEWSWIDTH">
+
+m4_ifdef(`NEWSLIST',
+`BORDER_START(Latest News, 5)
+m4_undefine(`NEWS')
+m4_undefine(`LNEWS')
+m4_define(NEWS,)
+
+m4_define(LNEWS,
+`<b>$1</b><br>
+$2<br><br><br>')
+
+<font size="-1">
+m4_include(NEWSLIST)
+<div align="right">
+<a href="BASEURL/news.html">News archive</a>
+</div>
+</font>
+BORDER_END()'
+,
+)
+
+m4_ifdef(`EVENTSLIST',
+`<br>
+BORDER_START(Upcoming Events, 5)
+<font size="-1">
+m4_include(EVENTSLIST)
+<div align="right">
+<a href="events.html">More events</a>
+</div>
+</font>
+BORDER_END()
+',)
+
+<br>
+
+</td></tr></table>
+

@@ -1,0 +1,2 @@
+HTMLFILES=index.html changelog.html developers.html documentation.html download.html licence.html \
+	links.html mailinglist.html news.html os.html

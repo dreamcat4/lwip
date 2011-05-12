@@ -1,0 +1,90 @@
+<h2>Using lwIP with or without an operating system</h2>
+
+<p>
+There has been a few questions about how lwIP can be used in a
+standalone environment (i.e., an environment without a multi-threaded
+operating system) lately. The purpose of this document is to describe
+how lwIP is designed to be used with and without a multi-threaded
+operating system.
+</p>
+
+<center><img src="os.png"></center>
+
+<h3>The lwIP single-threaded core</h3>
+<p>
+The core of lwIP consists of the actual implementations of the IP,
+ICMP, UDP, and TCP protocols, as well as the support functions such as
+buffer and memory management. The core components are the only ones
+that are needed when lwIP is to be run in a single-threaded (non-OS)
+environment. 
+</p>
+<p>
+The core components can be viewed as a software library which has the
+following interface:
+</p>
+<ul>
+<li><tt>ip_input(pbuf, netif)</tt>: Takes an IP packet and the incoming network
+interface as arguments and does the TCP/IP processing for the packet.
+<li><tt>tcp_tmr()</tt>: Should be called every 100 ms. Does all TCP
+timer processing such as doing retransmissions.
+</ul>
+<p>
+Because none of the core functions ever needs to block when run in a
+single-threaded environment, the <tt>sys_arch</tt> (the operating
+system abstraction layer) does not need to implement locking
+semaphores or mailboxes. In future versions of lwIP, the dependancy of
+the <tt>sys_arch</tt> will be removed in the single-threaded case.
+</p>
+<p>
+A simple main loop for a single-threaded system might look
+like this:
+</p>
+<pre>
+  while(1) {
+    if(poll_driver(netif) == PACKET_READY) {
+      pbuf = get_packet(netif);
+      ip_input(pbuf, netif);
+    }
+
+    if(clock() - last_time == 100 * CLOCK_MS) {
+      tcp_tmr();
+      last_time = clock();
+    }    
+  }
+</pre>
+
+<h3>lwIP in a multi-threaded system</h3>
+<p>
+lwIP is designed to be able to be run in a multi-threaded system with
+applications running in concurrent threads. The model used in this
+case is that all TCP/IP processing is done in a single thread. The
+application thread communicate with the TCP/IP thread using the
+sequential API.
+</p>
+
+<center><img src="threads.png"></center>
+
+<p>
+The inter-thread communication is implemented in the two files
+<tt>api_lib.c</tt> and <tt>api_msg.c</tt>. The former contains the
+functions used by the application programs and the latter implements
+the TCP/IP stack interface. A third file, <tt>tcpip.c</tt>, handles
+incoming packets and timer events as described in the previous
+section. 
+</p>
+
+<p>
+When run in a multi-threaded environment, incoming packets are handled
+by the function <tt>tcpip_input()</tt>, which takes the same arguments
+as the <tt>ip_input()</tt> function. The difference between the two
+functions is that the <tt>tcpip_input()</tt> function does not process
+the incoming packet immediately. It merely puts the packet on a queue
+which later is drained by the TCP/IP thread.
+</p>
+
+<p>
+When being run in a multi-threaded system, timer events are taken care
+of internally in <tt>tcpip.c</tt>.
+</p>
+
+UPDATED($Date: 2003/01/20 14:13:31 $)        
